@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
 .calculator-container {
   width: 1000px;
   margin: 0 auto;
@@ -12,18 +14,52 @@
 .left-container {
   width: 100%;
 }
-
-label {
-  display: block;
-  color: #6f8383;
+.bill-input-container,
+.people-number-input-container {
+    display: flex;
 }
-input {
-  width: 100%;
-  background: #f3f8fb;
-  border: none;
-  padding: 20px 10px;
+label {
+    display: block;
+    color: #6f8383;
+    margin-bottom: 10px;
+}
+.bill-input-container:focus-within,
+.people-number-input-container:focus-within {
+  border: 3px solid #c3e3e3;
   border-radius: 5px;
 }
+.bill-input-container div,
+.people-number-input-container div {
+    width: 10%;
+    background: #f3f8fb;
+    border: none;
+    padding: 10px 20px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    color: #a0bcbb;
+    font-size: 24px;
+}
+input {
+  width: 90%;
+  background: #f3f8fb;
+  text-align: right;
+  border: none;
+  padding: 12px 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+input::placeholder {
+  text-align: right;
+}
+
+input:focus {
+  outline: none;
+}
+
 .select-tip-container {
   margin: 50px 0;
 }
@@ -33,21 +69,53 @@ input {
   gap: 10px;
 }
 .tip-box {
-  background-color: #00474b;
+  background-color: #014147;
   text-align: center;
   padding: 15px;
   border-radius: 5px;
   color: #fff;
+  cursor: pointer;
 }
 .tip-box-custom {
   background-color: #f3f8fb;
   color: #6f8383;
 }
-.right-container {
+input[name="custom-tip"]{
     width: 100%;
+    background-color: #f5f9fa;
+    border-radius: 5px;
+    color: #00474b;
+    cursor: pointer;
+}
+input[name="custom-tip"]::placeholder{
+    text-align: center;
+}
+.tip-box-1:focus,
+.tip-box-2:focus,
+.tip-box-3:focus,
+.tip-box-4:focus,
+.tip-box-5:focus,
+.tip-box-6:focus,
+.tip-box-1:hover,
+.tip-box-2:hover,
+.tip-box-3:hover,
+.tip-box-4:hover,
+.tip-box-5:hover,
+.tip-box-6:hover{
+    background-color: #c3e3e3;
+    color: #2cbeab;
+}
+
+.right-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   background-color: #00474b;
   padding: 20px;
   border-radius: 15px;
+}
+.tip-and-total-price-container {
+  flex-grow: 1;
 }
 .tip-amount,
 .total {
@@ -58,14 +126,29 @@ input {
   align-items: center;
 }
 .price-explanation {
-  font-size: 18px;
+    width: 100px;
+  font-size: 24px;
   color: #fff;
 }
 .price {
   font-size: 40px;
   color: #26c1ab;
 }
-.divide{
-    display: block;
-    color: rgba(82,143,145,255);
+.divide {
+  display: block;
+  color: rgba(82, 143, 145, 255);
+  font-size: 18px;
+}
+.reset-btn button {
+  width: 100%;
+  padding: 15px 10px;
+  border-radius: 5px;
+  border: none;
+  background: #0d686d;
+  color: #00474b;
+  cursor: pointer;
+}
+.reset-btn button:focus,
+.reset-btn button:hover{
+    background-color: #c3e3e3;
 }

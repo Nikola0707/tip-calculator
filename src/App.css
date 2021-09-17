@@ -1,5 +1,8 @@
 *{
   box-sizing: border-box;
+  font-family: 'Space Mono', monospace;
+  font-size: 20px;
+  color: #00474b;
 }
 .app-container{
   height: 100vh;
