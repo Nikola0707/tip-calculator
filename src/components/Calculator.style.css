@@ -156,3 +156,18 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+
+/* Responsive */
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+  .app-container{
+    padding-top: 50px;
+  }
+  .calculator-container{
+    width: 100%;
+    grid-template-columns: 1fr;
+    padding: 40px 25px;
+  }
+  .select-tip-btns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
