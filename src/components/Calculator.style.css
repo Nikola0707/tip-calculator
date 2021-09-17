@@ -151,3 +151,8 @@ input[name="custom-tip"]::placeholder{
 .reset-btn button:hover{
     background-color: #c3e3e3;
 }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

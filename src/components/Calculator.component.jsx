@@ -7,22 +7,22 @@ const Calculator = () => {
   const [tip, setTip] = useState(0);
   const [numberOfPeople, setNumberOfPeople] = useState(1);
   const [totalTip, setTotalTip] = useState(0);
-  const [dividedSum, setDividedSum] = useState(0)
+  const [dividedSum, setDividedSum] = useState(0);
 
   const calculateTip = () => {
     let totalTipResult = (bill * tip) / 100;
-        totalTipResult = Math.round(tip * 100) / 100;
-        totalTipResult = totalTipResult.toFixed(2)
-        setTotalTip(totalTipResult);
+    totalTipResult = Math.round(tip * 100) / 100;
+    totalTipResult = totalTipResult.toFixed(2);
+    setTotalTip(totalTipResult);
 
-    let dividedSumResult = totalTipResult / numberOfPeople; 
-        dividedSumResult = dividedSumResult.toFixed(2)
-        setDividedSum(dividedSumResult) 
+    let dividedSumResult = totalTipResult / numberOfPeople;
+    dividedSumResult = dividedSumResult.toFixed(2);
+    setDividedSum(dividedSumResult);
   };
 
   useEffect(() => {
-    calculateTip()
-  }, [tip, numberOfPeople])
+    calculateTip();
+  }, [tip, numberOfPeople]);
 
   return (
     <div className="calculator-container">
@@ -31,7 +31,7 @@ const Calculator = () => {
         <div className="bill-input-container" id="f">
           <div>$</div>
           <input
-            type="text"
+            type="number"
             placeholder="0"
             onChange={(e) => setBill(e.target.value)}
           />
@@ -75,26 +75,52 @@ const Calculator = () => {
               50%
             </div>
             <input
-              type="text"
+              type="number"
               name="custom-tip"
               placeholder="Custom"
               onChange={(e) => setTip(e.target.value)}
             />
           </div>
         </div>
-        <div className="number-of-ppl-container">
-          <label htmlFor="ppl">Number of People</label>
-          <div className="people-number-input-container">
-            <div>
-              <FaUserAlt />
+        {numberOfPeople > 0 ? (
+          <div className="number-of-ppl-container">
+            <label htmlFor="ppl">Number of People</label>
+            <div className="people-number-input-container">
+              <div>
+                <FaUserAlt />
+              </div>
+              <input
+                type="number"
+                placeholder="0"
+                onChange={(e) => setNumberOfPeople(e.target.value)}
+              />
             </div>
-            <input
-              type="text"
-              placeholder="0"
-              onChange={(e) => setNumberOfPeople(e.target.value)}
-            />
           </div>
-        </div>
+        ) : (
+          <div className="number-of-ppl-container">
+            <label htmlFor="ppl">
+              Number of People{" "}
+              <span style={{ color: "#ce8973", marginLeft: "50px" }}>
+                Can't be zero
+              </span>
+            </label>
+            <div
+              className="people-number-input-container"
+              style={{
+                border: "2px solid #ce8973",
+              }}
+            >
+              <div>
+                <FaUserAlt />
+              </div>
+              <input
+                type="number"
+                placeholder="0"
+                onChange={(e) => setNumberOfPeople(e.target.value)}
+              />
+            </div>
+          </div>
+        )}
       </div>
       <div className="right-container">
         <div className="tip-and-total-price-container">
