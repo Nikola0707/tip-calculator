@@ -102,10 +102,9 @@ input[name="custom-tip"]::placeholder{
 .tip-box-4:hover,
 .tip-box-5:hover,
 .tip-box-6:hover{
-    background-color: #c3e3e3;
-    color: #2cbeab;
+    background-color: #24c3ad;
+    color: #05454c;
 }
-
 .right-container {
   display: flex;
   flex-direction: column;

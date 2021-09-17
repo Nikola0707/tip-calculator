@@ -1,31 +1,98 @@
 import "./Calculator.style.css";
 import { FaUserAlt } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 const Calculator = () => {
+  const [bill, setBill] = useState(0);
+  const [tip, setTip] = useState(0);
+  const [numberOfPeople, setNumberOfPeople] = useState(1);
+  const [totalTip, setTotalTip] = useState(0);
+  const [dividedSum, setDividedSum] = useState(0)
+
+  const calculateTip = () => {
+    let totalTipResult = (bill * tip) / 100;
+        totalTipResult = Math.round(tip * 100) / 100;
+        totalTipResult = totalTipResult.toFixed(2)
+        setTotalTip(totalTipResult);
+
+    let dividedSumResult = totalTipResult / numberOfPeople; 
+        dividedSumResult = dividedSumResult.toFixed(2)
+        setDividedSum(dividedSumResult) 
+  };
+
+  useEffect(() => {
+    calculateTip()
+  }, [tip, numberOfPeople])
+
   return (
     <div className="calculator-container">
       <div className="left-container">
         <label htmlFor="bill">Bill</label>
         <div className="bill-input-container" id="f">
           <div>$</div>
-          <input type="text" placeholder="0" />
+          <input
+            type="text"
+            placeholder="0"
+            onChange={(e) => setBill(e.target.value)}
+          />
         </div>
         <div className="select-tip-container">
           <label htmlFor="tip">Select Tip %</label>
           <div className="select-tip-btns">
-            <div className="tip-box tip-box-1" tabindex="0">5%</div>
-            <div className="tip-box tip-box-2" tabIndex="0">10%</div>
-            <div className="tip-box tip-box-3" tabIndex="0">15%</div>
-            <div className="tip-box tip-box-4" tabIndex="0">25%</div>
-            <div className="tip-box tip-box-5" tabIndex="0">50%</div>
-            <input type="text" name="custom-tip" placeholder="Custom"/>
+            <div
+              className="tip-box tip-box-1"
+              tabIndex="0"
+              onClick={() => setTip(5)}
+            >
+              5%
+            </div>
+            <div
+              className="tip-box tip-box-2"
+              tabIndex="0"
+              onClick={() => setTip(10)}
+            >
+              10%
+            </div>
+            <div
+              className="tip-box tip-box-3"
+              tabIndex="0"
+              onClick={() => setTip(15)}
+            >
+              15%
+            </div>
+            <div
+              className="tip-box tip-box-4"
+              tabIndex="0"
+              onClick={() => setTip(25)}
+            >
+              25%
+            </div>
+            <div
+              className="tip-box tip-box-5"
+              tabIndex="0"
+              onClick={() => setTip(50)}
+            >
+              50%
+            </div>
+            <input
+              type="text"
+              name="custom-tip"
+              placeholder="Custom"
+              onChange={(e) => setTip(e.target.value)}
+            />
           </div>
         </div>
         <div className="number-of-ppl-container">
           <label htmlFor="ppl">Number of People</label>
           <div className="people-number-input-container">
-            <div><FaUserAlt /></div>
-            <input type="text" placeholder="0" />
+            <div>
+              <FaUserAlt />
+            </div>
+            <input
+              type="text"
+              placeholder="0"
+              onChange={(e) => setNumberOfPeople(e.target.value)}
+            />
           </div>
         </div>
       </div>
@@ -38,7 +105,7 @@ const Calculator = () => {
               </p>
             </div>
             <div>
-              <p className="price">$0.00</p>
+              <p className="price">${totalTip}</p>
             </div>
           </div>
           <div className="total">
@@ -48,7 +115,7 @@ const Calculator = () => {
               </p>
             </div>
             <div>
-              <p className="price">$0.00</p>
+              <p className="price">${dividedSum}</p>
             </div>
           </div>
         </div>
