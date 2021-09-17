@@ -9,6 +9,14 @@ const Calculator = () => {
   const [totalTip, setTotalTip] = useState(0);
   const [dividedSum, setDividedSum] = useState(0);
 
+    const clearInputHandler = () => {
+        setBill(0)
+        setTip(0)
+        setNumberOfPeople(1)
+        setTotalTip(0)
+        setDividedSum(0)
+    }
+
   const calculateTip = () => {
     let totalTipResult = (bill * tip) / 100;
     totalTipResult = Math.round(tip * 100) / 100;
@@ -33,6 +41,7 @@ const Calculator = () => {
           <input
             type="number"
             placeholder="0"
+            value={bill}
             onChange={(e) => setBill(e.target.value)}
           />
         </div>
@@ -92,6 +101,7 @@ const Calculator = () => {
               <input
                 type="number"
                 placeholder="0"
+                value={numberOfPeople}
                 onChange={(e) => setNumberOfPeople(e.target.value)}
               />
             </div>
@@ -116,6 +126,7 @@ const Calculator = () => {
               <input
                 type="number"
                 placeholder="0"
+                value={numberOfPeople}
                 onChange={(e) => setNumberOfPeople(e.target.value)}
               />
             </div>
@@ -146,7 +157,7 @@ const Calculator = () => {
           </div>
         </div>
         <div className="reset-btn">
-          <button>RESET</button>
+          <button onClick={() => clearInputHandler()}>RESET</button>
         </div>
       </div>
     </div>
