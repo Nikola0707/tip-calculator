@@ -1,0 +1,71 @@
+.calculator-container {
+  width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  justify-items: center;
+  background: #fff;
+  padding: 50px;
+  border-radius: 20px;
+}
+.left-container {
+  width: 100%;
+}
+
+label {
+  display: block;
+  color: #6f8383;
+}
+input {
+  width: 100%;
+  background: #f3f8fb;
+  border: none;
+  padding: 20px 10px;
+  border-radius: 5px;
+}
+.select-tip-container {
+  margin: 50px 0;
+}
+.select-tip-btns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.tip-box {
+  background-color: #00474b;
+  text-align: center;
+  padding: 15px;
+  border-radius: 5px;
+  color: #fff;
+}
+.tip-box-custom {
+  background-color: #f3f8fb;
+  color: #6f8383;
+}
+.right-container {
+    width: 100%;
+  background-color: #00474b;
+  padding: 20px;
+  border-radius: 15px;
+}
+.tip-amount,
+.total {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+}
+.price-explanation {
+  font-size: 18px;
+  color: #fff;
+}
+.price {
+  font-size: 40px;
+  color: #26c1ab;
+}
+.divide{
+    display: block;
+    color: rgba(82,143,145,255);
+}
