@@ -7,5 +7,11 @@
 .app-container{
   height: 100vh;
   background: #c4e4e7;
-  padding: 300px 0;
+  padding: 100px 0;
+}
+.title span{
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  color: #03787e;
 }

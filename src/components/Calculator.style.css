@@ -2,7 +2,7 @@
 
 .calculator-container {
   width: 1000px;
-  margin: 0 auto;
+  margin: 70px auto 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 50px;
